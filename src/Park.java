@@ -24,7 +24,7 @@ public class Park {
         return carsList;
     }
 
-    public List<Car> getSortedByName(){
+    public List<Car> getSortedByMarka(){
         Collections.sort(carsList, new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {

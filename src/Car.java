@@ -26,7 +26,7 @@ public class Car implements Comparable<Car> {
     private Model model;
     private Color color;
     private String number;
-    private String owner;
+    private User owner;
     private Calendar dateOfIssue = new GregorianCalendar();
 
     public Marka getMarka() {
@@ -61,11 +61,11 @@ public class Car implements Comparable<Car> {
         this.number = number1;
     }
 
-    public String getOwner() {
+    public User getOwner() {
         return this.owner;
     }
 
-    public void setOwner(String owner1) {
+    public void setOwner(User owner1) {
         this.owner = owner1;
     }
 
@@ -77,7 +77,7 @@ public class Car implements Comparable<Car> {
         this.dateOfIssue = dateOfIssue;
     }
 
-    public Car(Marka marka, Model model, Color color, String number, String owner, Calendar dateOfIssue) {
+    public Car(Marka marka, Model model, Color color, String number, User owner, Calendar dateOfIssue) {
         super();
         setMarka(marka);
         setModel(model);
@@ -89,7 +89,7 @@ public class Car implements Comparable<Car> {
 
     public String toString() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return "Mark: " + this.marka + "-- date of issue: " + formatter.format(this.getDateOfIssue().getTime());
+        return "Mark: " + this.marka + " " + this.model + "-- date of issue: " + formatter.format(this.dateOfIssue.getTime()) + ", Car number: " + this.number + "Car color: " + this.color + "Car owner: " + this.owner;
     }
 
 
