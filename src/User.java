@@ -10,7 +10,8 @@ public class User {
     private String phoneNumber;
     private String phoneNumber2;
     private Calendar dateOfBirth = new GregorianCalendar();
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<Car>();
+  //  private Car car;
 
     public String getName() {
         return this.name;
@@ -37,8 +38,6 @@ public class User {
         return this.phoneNumber2;
     }
 
-
-
     public void setPhoneNumber2(String phoneNumber2) {
         this.phoneNumber2 = phoneNumber2;
     }
@@ -55,10 +54,20 @@ public class User {
         return this.dateOfBirth;
     }
 
-
-
     public void setDateOfBirth(Calendar dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+//    public Car getCar() {
+//        return car;
+//    }
+//
+//    public void setCar(Car car) {
+//        this.car = car;
+//    }
+
+
+    public User() {
     }
 
     public User(String name, String surname, String phoneNumber, String phoneNumber2, Calendar dateOfBirth) {
@@ -73,7 +82,11 @@ public class User {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
        // String s = this.phoneNumber == null ? "":this.phoneNumber;
         return "Name: " + this.name + " " + this.surname + ", Phone number: " + this.phoneNumber + ", " +
-                this.phoneNumber2 + ", Date of birth: " + formatter.format(this.dateOfBirth.getTime()) + "Autopark: " + this.cars;
+                this.phoneNumber2 + ", Date of birth: " + formatter.format(this.dateOfBirth.getTime()) + " Autopark: " + this.cars;
     }
+    public void addCarToUser(Car car) {
+        cars.add(car);
+        }
+
 
 }

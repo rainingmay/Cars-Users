@@ -88,7 +88,7 @@ public class Car implements Comparable<Car> {
 
     public String toString() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return "Mark of car: " + this.marka + " " + this.model + "-- date of issue: " + formatter.format(this.dateOfIssue.getTime()) + ", Car number: " + this.number + ", Car color: " + this.color/* + "Car owner: " + this.owner*/;
+        return "Mark of car: " + this.marka + " " + this.model + " -- date of issue: " + formatter.format(this.dateOfIssue.getTime()) + ", Car number: " + this.number + ", Car color: " + this.color/* + "Car owner: " + this.owner*/;
     }
 
 }

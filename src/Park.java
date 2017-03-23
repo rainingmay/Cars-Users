@@ -2,6 +2,7 @@
  * Created by Yana on 14.03.2017.
  */
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Park {
@@ -15,7 +16,7 @@ public class Park {
         this.carsList = carsList;
     }
 
-    public void addCar(Car car) {
+    public void addCarToList(Car car) {
         carsList.add(car);
     }
 
@@ -28,7 +29,6 @@ public class Park {
         Collections.sort(carsList, new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
-
                 return o1.getMarka().toString().compareTo(o2.getMarka().toString());
             }
         });
@@ -37,6 +37,19 @@ public class Park {
     public List<Car> getSortedByYearReverse() {
         Collections.reverse(this.sortCarsByYear());
         return carsList;
+            }
+  //  public Car addCarManuallyToList() {
+
+//        while(!right){
+//            //Scanner scanner = new Scanner(System.in);
+//            marka = scanner.nextLine();
+//            try{
+//                Car.Marka.valueOf(marka);
+//                right=true;
+//            }
+//            catch (Exception e){
+//            }}
+
+
     }
-}
 
