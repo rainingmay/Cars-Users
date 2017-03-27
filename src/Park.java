@@ -4,6 +4,7 @@
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import model.*;
 
 public class Park {
     private List<Car> carsList = new ArrayList<Car>();
@@ -37,6 +38,10 @@ public class Park {
     public List<Car> getSortedByYearReverse() {
         Collections.reverse(this.sortCarsByYear());
         return carsList;
+            }
+
+            public Car getCarByNumber(String number){
+        return carsList.get(0);
             }
   //  public Car addCarManuallyToList() {
 

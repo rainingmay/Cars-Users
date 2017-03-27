@@ -1,15 +1,27 @@
+package model;
 import java.util.*;
 import java.text.SimpleDateFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Yana on 16.03.2017.
  */
+
+
+
 public class User {
+    @JsonProperty("Name")
     private String name;
+    @JsonProperty("Surname")
     private String surname;
+    @JsonProperty("PhoneNumber")
     private String phoneNumber;
+    @JsonProperty("PhoneNumber#2")
     private String phoneNumber2;
+    @JsonProperty("DateOfBirth")
     private Calendar dateOfBirth = new GregorianCalendar();
+    @JsonProperty("Vars")
     private List<Car> cars = new ArrayList<Car>();
   //  private Car car;
 

@@ -3,6 +3,7 @@
  */
 import java.util.*;
 import java.util.Scanner;
+import model.*;
 
 public class UsersService {
 
@@ -84,14 +85,28 @@ public class UsersService {
 
     public void createCarWithUser2(Car car, User user) {
 
-     if (checkExixtanceOfCarAtCarslist(car.getNumber()))  {
+     if (checkExixtanceOfCarAtCarslist(car.getNumber()) != null)  {
     //    if (checkExixtanceOfCarAtCarslist(car.number == true) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("This car " + car.getNumber() + " is already exist. The owner is " + car.getOwner() + ". Do you want to overwrite it's data? If YES press Y, If NO press another key");
-            String overwrite = scanner.nextLine();
-            if (overwrite.equals("Y")) {
+         Scanner scanner = new Scanner(System.in);
+         System.out.println("The car with number " + car.getNumber() + " is already exist.");
+         System.out.println("The owner is " + checkExixtanceOfCarAtCarslist(car.getNumber()).getOwner());
+         System.out.println("Do you want to overwrite it's data? If YES press Y, If NO press another key");
+         String overwrite = scanner.nextLine();
+            if (overwrite.equalsIgnoreCase("Y")) {
+
+                ListIterator<Car> listIter = user.getCars().listIterator();
+                while(listIter.hasNext()){
+                    Car car1 = listIter.next();
+                    String number = car1.getNumber();
+                    if(car.getNumber().equals(number));
+                    {
+                        listIter.remove();
+                        break;
+                    }
+                }
                 user.addCarToUser(car);
                 car.setOwner(user);
+                System.out.println("You've added next car to " + user.getName() +" " + user.getSurname() + " : " + car);
                 return;
             } else {
                 System.out.println("Car isn't added");
@@ -109,14 +124,27 @@ public class UsersService {
         return false;
     }
 
-    public boolean checkExixtanceOfCarAtCarslist(String number) {
+    public Car checkExixtanceOfCarAtCarslist(String number) {
         for (User user : usersList) {
             for (Car car : user.getCars()) {
                 if (car.getNumber().equals(number)) {
-                    return true;
+                    return car;
                 }
             }
         }
-        return false;
+        return null;
     }
+
+//    public Car deleteCar(String number){
+//        .get(0);
+//        Car car = carsList.get(0);
+//        car = null;
+//        return car;
+//    }
+//    public interface Iterator <car>{
+//
+//        car next();
+//        boolean hasNext();
+//        void remove();
+//    }
 }

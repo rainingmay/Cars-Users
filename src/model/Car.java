@@ -1,4 +1,10 @@
+package model;
+
+import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.jetbrains.annotations.NotNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,7 +13,6 @@ import java.util.GregorianCalendar;
 /**
  * Created by Yana on 14.03.2017.
  */
-import java.util.*;
 
 public class Car implements Comparable<Car> {
     @Override
@@ -16,18 +21,24 @@ public class Car implements Comparable<Car> {
         return this.getDateOfIssue().compareTo(car.getDateOfIssue());
     }
 
-    enum Marka {TOYOTA, BMW, MERSEDES, CHEVROLET, CADILLAC, BUICK}
+    public enum Marka {TOYOTA, BMW, MERSEDES, CHEVROLET, CADILLAC, BUICK}
 
-    enum Model {CORROLA, CAMRY, MB193, M407D, X5, R172, SL63}
+    public enum Model {CORROLA, CAMRY, MB193, M407D, X5, R172, SL63}
 
-    enum Color {RED, PINK, YELLOW, GREEN, BLACK, GREY, WHITE}
+    public enum Color {RED, PINK, YELLOW, GREEN, BLACK, GREY, WHITE}
 
-    private Marka marka;
-    private Model model;
-    private Color color;
-    private String number;
-    private User owner = new User();
-    private Calendar dateOfIssue = new GregorianCalendar();
+    @JsonProperty("Car marka")
+    public Marka marka;
+    @JsonProperty("Car model")
+    public Model model;
+    @JsonProperty("Car color")
+    public Color color;
+    @JsonProperty("Car number")
+    public String number;
+    @JsonIgnore
+    public User owner = new User();
+    @JsonProperty("Car date of issue")
+    public Calendar dateOfIssue = new GregorianCalendar();
 
     public Marka getMarka() {
         return this.marka;
@@ -75,6 +86,9 @@ public class Car implements Comparable<Car> {
 
     public void setDateOfIssue(Calendar dateOfIssue) {
         this.dateOfIssue = dateOfIssue;
+    }
+
+    public Car(){
     }
 
     public Car(Marka marka, Model model, Color color, String number, Calendar dateOfIssue) {
